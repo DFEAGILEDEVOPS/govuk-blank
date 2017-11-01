@@ -27,8 +27,8 @@ echo ### ADDING Dockerfile TO $INNER_ZIP
 zip $INNER_ZIP Dockerfile
 mv $INNER_ZIP $BUILD_BUILDID.zip
 
-#echo ### PUBLISHING $INNER_ZIP TO $oc_nexus_repo
-#curl -k -v -u $oc_nexus_credentials --upload-file $BUILD_BUILDID.zip $oc_nexus_repo
+echo ### PUBLISHING $INNER_ZIP TO $oc_nexus_repo
+curl -k -v -u $oc_nexus_credentials --upload-file $BUILD_BUILDID.zip $oc_nexus_repo
 
 # Download oc
 curl -u $oc_nexus_credentials -O -k https://nexus.demo.dfe.secnix.co.uk/repository/dfe_admin/oc-3.6.173.0.49-linux.tar
