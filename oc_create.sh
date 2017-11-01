@@ -6,4 +6,4 @@ echo oc_project_name=$oc_project_name
 echo oc_build_name=$oc_build_name
 echo oc_runtime_image=$oc_runtime_image
 echo source ${oc_runtime_image}.sh $oc_project_name $oc_build_name
-source ${oc_runtime_image}.sh $oc_project_name $oc_build_name
+source create_${oc_runtime_image}.sh $oc_project_name $oc_build_name
