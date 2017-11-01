@@ -4,3 +4,4 @@ oc_runtime_image=$3
 echo oc_project_name=$oc_project_name
 echo oc_build_name=$oc_build_name
 echo oc_runtime_image=$oc_runtime_image
+./${oc_runtime_image}.sh $oc_project_name $oc_build_name
