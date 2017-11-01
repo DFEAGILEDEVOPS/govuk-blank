@@ -5,8 +5,7 @@ echo oc_openshift_credentials=$oc_openshift_credentials
 echo oc_dfe_deploy_url=$oc_dfe_deploy_url
 echo oc_nexus_repo=$oc_nexus_repo
 echo oc_project=$oc_project
-
-
+echo oc_app=$oc_app
 
 echo BUILD_ARTIFACTSTAGINGDIRECTORY=$BUILD_ARTIFACTSTAGINGDIRECTORY
 echo BUILD_BINARIESDIRECTORY=$BUILD_BINARIESDIRECTORY
@@ -40,4 +39,4 @@ echo ### LOGGING IN
 
 echo ### RUNNIGN BUILD appname IN $OC_PROJECT WITH $BUILD_BUILDID.zip
 ./oc project $OC_PROJECT
-./oc start-build appname -n $OC_PROJECT --from-archive=$BUILD_BUILDID.zip
+./oc start-build $oc_app -n $OC_PROJECT --from-archive=$BUILD_BUILDID.zip
