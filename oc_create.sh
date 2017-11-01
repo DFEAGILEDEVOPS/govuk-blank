@@ -7,7 +7,7 @@ echo oc_build_name=$oc_build_name
 echo oc_runtime_image=$oc_runtime_image
 
 echo oc_nexus_credentials=$oc_nexus_credentials
-echo oc_nexus_credentials=$oc_nexus_credentials 
+echo oc_openshift_credentials=$oc_openshift_credentials 
 
 # Download oc
 curl -u $oc_nexus_credentials -O -k https://nexus.demo.dfe.secnix.co.uk/repository/dfe_admin/oc-3.6.173.0.49-linux.tar
