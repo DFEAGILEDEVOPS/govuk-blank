@@ -1,21 +1,21 @@
 #!/bin/bash
-PROJECT_NAME=$1
-echo PROJECT_NAME=$PROJECT_NAME
-APP_NAME=$2
-echo APP_NAME=$APP_NAME
+oc_project_name=$1
+echo oc_project_name=$oc_project_name
+oc_build_config_name=$2
+echo oc_build_config_name=$oc_build_config_name
 
-./oc new-project $PROJECT_NAME
-./oc new-app --name=$APP_NAME dotnet:2.0~https://github.com/DFEAGILEDEVOPS/govuk-blank.git
-./oc create route edge --service=$APP_NAME --hostname=$APP_NAME.demo.dfe.secnix.co.uk
-./oc delete bc $APP_NAME -n $PROJECT_NAME
+./oc new-project $oc_project_name
+./oc new-app --name=$oc_build_config_name dotnet:2.0~https://github.com/DFEAGILEDEVOPS/govuk-blank.git
+./oc create route edge --service=$oc_build_config_name --hostname=$oc_build_config_name.demo.dfe.secnix.co.uk
+./oc delete bc $oc_build_config_name -n $oc_project_name
 ./oc create -f - <<EOF 
 apiVersion: v1
 kind: BuildConfig
 metadata:
-  name: ${APP_NAME}
-  namespace: ${PROJECT_NAME}
+  name: ${oc_build_config_name}
+  namespace: ${oc_project_name}
   labels:
-    app: ${APP_NAME}
+    app: ${oc_build_config_name}
     component: development
     logging-infra: development
     provider: openshift
@@ -36,7 +36,7 @@ spec:
   output:
     to:
       kind: ImageStreamTag
-      name: '${APP_NAME}:latest'
+      name: '${oc_build_config_name}:latest'
   resources: {}
   postCommit: {}
   nodeSelector: null
