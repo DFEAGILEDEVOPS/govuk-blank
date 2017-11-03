@@ -6,7 +6,7 @@ echo oc_build_config_name=$oc_build_config_name
 
 ./oc new-project $oc_project_name
 ./oc new-app --name=$oc_build_config_name dotnet:2.0~https://github.com/DFEAGILEDEVOPS/govuk-blank.git
-./oc create route edge --service=$oc_build_config_name --hostname=${oc_build_config_name}_${oc_project_name}.demo.dfe.secnix.co.uk
+./oc create route edge --service=$oc_build_config_name --hostname=${oc_build_config_name}-${oc_project_name}.demo.dfe.secnix.co.uk
 ./oc delete bc $oc_build_config_name -n $oc_project_name
 ./oc create -f - <<EOF 
 apiVersion: v1
