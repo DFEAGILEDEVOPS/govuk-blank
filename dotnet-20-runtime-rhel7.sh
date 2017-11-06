@@ -33,12 +33,12 @@ mv $INNER_ZIP $BUILD_BUILDID.zip
 # Download oc
 #curl -u $oc_nexus_credentials -O -k https://nexus.demo.dfe.secnix.co.uk/repository/dfe_admin/oc-3.6.173.0.49-linux.tar
 #tar xfv oc-3.6.173.0.49-linux.tar
-wget -O oc.tar https://www.dropbox.com/s/ir3xms1m72p5lsh/oc-3.6.173.0.49-linux.tar?dl=0
+wget -q -O oc.tar https://www.dropbox.com/s/ir3xms1m72p5lsh/oc-3.6.173.0.49-linux.tar?dl=0
 tar xfv oc.tar
 
 echo ### LOGGING IN
 ./oc login --insecure-skip-tls-verify https://demo.dfe.secnix.co.uk:8443 --token="$oc_openshift_credentials"
 
 echo ### RUNNIGN BUILD appname IN $OC_PROJECT WITH $BUILD_BUILDID.zip
-./oc project $OC_PROJECT
-./oc start-build $oc_app -n $OC_PROJECT --from-archive=$BUILD_BUILDID.zip
+./oc project $oc_project
+./oc start-build $oc_app -n $oc_project --from-archive=$BUILD_BUILDID.zip
