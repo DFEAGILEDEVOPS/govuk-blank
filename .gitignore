@@ -5,3 +5,7 @@ node_modules
 wwwrootdeploy.sh
 deploy.sh
 upload.sh
+.vs/
+Properties/
+govukblank.csproj.user
+wwwroot/
