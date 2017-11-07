@@ -1,6 +1,6 @@
 using System;
 
-namespace govukblank.Models
+namespace app.Models
 {
     public class ErrorViewModel
     {
