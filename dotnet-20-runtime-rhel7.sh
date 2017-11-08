@@ -20,7 +20,7 @@ FROM registry.access.redhat.com/dotnet/dotnet-20-runtime-rhel7
 
 ADD . .
 
-CMD ["dotnet", "govukblank.dll"]
+CMD ["dotnet", "newservice.dll"]
 EOF
 
 echo ### ADDING Dockerfile TO $INNER_ZIP
