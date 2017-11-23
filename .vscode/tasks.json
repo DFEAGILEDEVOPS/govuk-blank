@@ -7,7 +7,7 @@
         {
             "taskName": "build",
             "args": [
-                "${workspaceRoot}/govukblank.csproj"
+                "${workspaceRoot}/newservice.csproj"
             ],
             "isBuildCommand": true,
             "problemMatcher": "$msCompile"
